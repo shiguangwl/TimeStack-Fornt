@@ -82,9 +82,9 @@
       <el-table-column label="资源名" align="center" prop="vodName" />
       <el-table-column label="状态" align="center" prop="state" />
       <el-table-column label="日志时间" align="center" prop="createTime" width="180">
-        <template #default="scope">
-          <span>{{ parseTime(scope.row.createTime, '{y}-{m}-{d}') }}</span>
-        </template>
+<!--        <template #default="scope">-->
+<!--          <span>{{ parseTime(scope.row.createTime, '{y}-{m}-{d} ') }}</span>-->
+<!--        </template>-->
       </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template #default="scope">
@@ -93,7 +93,7 @@
         </template>
       </el-table-column>
     </el-table>
-    
+
     <pagination
       v-show="total>0"
       :total="total"

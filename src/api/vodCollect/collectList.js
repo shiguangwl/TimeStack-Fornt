@@ -1,5 +1,17 @@
 import request from '@/utils/request'
 
+
+
+export function collect(query) {
+  return request({
+    url: '/vodCollect/collectList/collect',
+    method: 'get',
+    params: query
+  })
+}
+
+
+
 // 查询资源采集站列表
 export function listCollectList(query) {
   return request({
