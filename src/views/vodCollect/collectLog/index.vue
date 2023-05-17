@@ -75,12 +75,19 @@
 
     <el-table v-loading="loading" :data="collectLogList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="ID" align="center" prop="id" />
-      <el-table-column label="站源ID" align="center" prop="collectId" />
+      <el-table-column label="ID" width="70" align="center" prop="id" />
+      <el-table-column label="站源ID" width="80"  align="center" prop="collectId" />
       <el-table-column label="站源" align="center" prop="collectName" />
-      <el-table-column label="资源ID" align="center" prop="vodId" />
-      <el-table-column label="资源名" align="center" prop="vodName" />
-      <el-table-column label="状态" align="center" prop="state" />
+      <el-table-column label="资源ID" width="80" align="center" prop="vodId" />
+      <el-table-column label="资源名" width="380" align="center" prop="vodName" />
+        <el-table-column label="状态" align="center" prop="state" >
+            <template #default="scope">
+
+                <el-tag v-if="scope.row.state == 1" class="ml-2" type="success">添加</el-tag>
+                <el-tag v-if="scope.row.state == 2" class="ml-2" type="info">更新</el-tag>
+                <el-tag v-if="scope.row.state == 3">无需更新</el-tag>
+            </template>
+        </el-table-column>
       <el-table-column label="日志时间" align="center" prop="createTime" width="180">
 <!--        <template #default="scope">-->
 <!--          <span>{{ parseTime(scope.row.createTime, '{y}-{m}-{d} ') }}</span>-->
@@ -150,7 +157,7 @@ const data = reactive({
   form: {},
   queryParams: {
     pageNum: 1,
-    pageSize: 10,
+    pageSize: 30,
     collectId: null,
     vodName: null,
     state: null,

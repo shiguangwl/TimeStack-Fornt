@@ -393,12 +393,24 @@ function createCollectTask(h,collectId){
     }
     console.log("任务提交参数:",params)
     collect(params).then(response => {
-        proxy.$modal.msgSuccess("提交采集任务成功");
-        loading.value = false;
-        getList();
+        // 延迟1.5秒执行
+        setTimeout(function(){
+            loading.value = false;
+            getList();
+            proxy.$modal.msgSuccess("提交采集任务成功");
+        },1500);
     });
 
 
 }
+// 拉取最新数据
+setInterval(function(){
+    listCollectList(queryParams.value).then(response => {
+        collectListList.value = response.rows;
+        total.value = response.total;
+    });
+},5000);
+
 getList();
+
 </script>
