@@ -149,6 +149,7 @@
                         <el-button type="primary" @click="createCollectTask(24,scope.row.id)" size="small">本日</el-button>
                         <el-button type="primary" @click="createCollectTask(168,scope.row.id)" size="small">本周</el-button>
                         <el-button type="primary" @click="createCollectTask(null,scope.row.id)" size="small">采集所有</el-button>
+                        <el-button type="primary" @click="cancelCollectTask(scope.row.id)" size="small">取消采集</el-button>
                     </div>
                 </template>
             </el-table-column>
@@ -209,7 +210,7 @@
 </template>
 
 <script setup name="CollectList">
-import { collect, listCollectList, getCollectList, delCollectList, addCollectList, updateCollectList } from "@/api/vodCollect/collectList";
+import { collectCancel, collect, listCollectList, getCollectList, delCollectList, addCollectList, updateCollectList } from "@/api/vodCollect/collectList";
 
 const { proxy } = getCurrentInstance();
 
@@ -376,33 +377,40 @@ function parseState(state){
  * 采集操作
  */
 function createCollectTask(h,collectId){
-    // proxy.$modal.confirm('是否确认采集资源采集站编号为"' + collectId + '"的数据项？').then(function() {
-    //     return collect(params);
-    // }).then(() => {
-    //     getList();
-    //     proxy.$modal.msgSuccess("提交采集任务成功");
-    // }).catch(e => {
-    //     proxy.$modal.msgError("提交采集任务失败",e);
-    // });
-
 
     loading.value = true;
     let params = {
         h: h,
         collectId: collectId
     }
-    console.log("任务提交参数:",params)
     collect(params).then(response => {
         // 延迟1.5秒执行
         setTimeout(function(){
             loading.value = false;
             getList();
             proxy.$modal.msgSuccess("提交采集任务成功");
-        },1500);
+        },2000);
     });
 
 
 }
+
+
+/**
+ * 取消采集任务
+ */
+function cancelCollectTask(collectId){
+    loading.value = true;
+    let params = {
+        collectId: collectId,
+    }
+    collectCancel(params).then(response => {
+        proxy.$modal.msgSuccess("执行取消采集任务成功");
+        loading.value = false;
+        getList();
+    });
+}
+
 // 拉取最新数据
 setInterval(function(){
     listCollectList(queryParams.value).then(response => {
@@ -412,5 +420,4 @@ setInterval(function(){
 },5000);
 
 getList();
-
 </script>

@@ -10,6 +10,14 @@ export function collect(query) {
   })
 }
 
+export function collectCancel(query) {
+  return request({
+    url: '/vodCollect/collectList/collectCancel',
+    method: 'get',
+    params: query
+  })
+}
+
 
 
 // 查询资源采集站列表
