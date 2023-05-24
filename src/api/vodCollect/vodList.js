@@ -1,5 +1,16 @@
 import request from '@/utils/request'
 
+// 搜索影视数据 公开
+export function searchVodList(query) {
+  return request({
+    url: '/vod/search',
+    method: 'get',
+    params: query
+  })
+}
+
+
+
 // 查询VodCollect 影视数据列表列表
 export function listVodList(query) {
   return request({

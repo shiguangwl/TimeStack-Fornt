@@ -90,7 +90,7 @@ function logout() {
     type: 'warning'
   }).then(() => {
     userStore.logOut().then(() => {
-      location.href = '/index';
+      location.href = '/';
     })
   }).catch(() => { });
 }

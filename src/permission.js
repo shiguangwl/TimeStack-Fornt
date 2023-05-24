@@ -14,12 +14,17 @@ NProgress.configure({ showSpinner: false });
 const whiteList = ['/login', '/register'];
 
 router.beforeEach((to, from, next) => {
+  if (to.path == '/'){
+    next()
+    return;
+  }
   NProgress.start()
+
   if (getToken()) {
     to.meta.title && useSettingsStore().setTitle(to.meta.title)
     /* has token*/
     if (to.path === '/login') {
-      next({ path: '/' })
+      next({ path: '/admin' })
       NProgress.done()
     } else {
       if (useUserStore().roles.length === 0) {

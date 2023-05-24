@@ -1,5 +1,8 @@
 <template>
-  <div class="login">
+    <div v-if="!loginOn">
+        你在干啥?
+    </div>
+  <div class="login" v-if="loginOn">
     <el-form ref="loginRef" :model="loginForm" :rules="loginRules" class="login-form">
       <h3 class="title">后台管理系统</h3>
       <el-form-item prop="username">
@@ -96,6 +99,28 @@ const captchaEnabled = ref(true);
 const register = ref(false);
 const redirect = ref(undefined);
 
+const loginOn = ref(false);
+let pwd = '';
+
+// UI密码
+onMounted(() => {
+  document.onkeydown = e => {
+    const key = window.event.keyCode;
+    if (key === 13) {
+        if (pwd == 'SHIGUANG') {
+            loginOn.value = true;
+        }
+        pwd = '';
+        return;
+    }
+
+    // 获取key对字母
+    const keychar = String.fromCharCode(key);
+    pwd = pwd + keychar;
+  };
+})
+
+
 function handleLogin() {
   proxy.$refs.loginRef.validate(valid => {
     if (valid) {
@@ -113,7 +138,8 @@ function handleLogin() {
       }
       // 调用action的登录方法
       userStore.login(loginForm.value).then(() => {
-        router.push({ path: redirect.value || "/" });
+          console.log(redirect.value)
+        router.push({ path: redirect.value || "/admin" });
       }).catch(() => {
         loading.value = false;
         // 重新获取验证码

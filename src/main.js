@@ -45,6 +45,9 @@ import DictTag from '@/components/DictTag'
 
 const app = createApp(App)
 
+import NPlayer from "@nplayer/vue";
+import Danmaku from '@nplayer/danmaku'
+
 // 全局方法挂载
 app.config.globalProperties.useDict = useDict
 app.config.globalProperties.download = download
@@ -69,6 +72,7 @@ app.use(router)
 app.use(store)
 app.use(plugins)
 app.use(elementIcons)
+app.use(NPlayer);
 app.component('svg-icon', SvgIcon)
 
 directive(app)
