@@ -1,9 +1,9 @@
 <template>
-    <div id="container" v-show="isShowBut">
-        <button id="floating-btn"></button>
-        <div id="content">要显示/隐藏的内容</div>
+    <div @mouseover="mouseoverDiv" @mouseout="onmouseoutDiv" id="container" :style="customStyle" v-show="isShowBut">
+        <div class="floating-btn"><span>但幕</span></div>
+<!--        <div id="content">要显示/隐藏的内容</div>-->
     </div>
-    <div style="width: 100%;height: 100%;">
+    <div style="display: none;width: 100%;height: 100%;">
         <NPlayer
                 :options="options"
                 :set="setPlayer"
@@ -12,15 +12,32 @@
 </template>
 
 <script setup name="IndexJx">
-
-
 import {reactive, ref} from "vue";
 import {useRoute} from "vue-router";
 import Danmaku from "@nplayer/danmaku";
 import Hls from 'hls.js'
 
 
+
+const customStyle = reactive({
+    width: '100px',
+    height: '100px',
+})
+
 let isShowBut = ref(true);
+const mouseoverDiv = function () {
+    // isShowBut.value = true
+    customStyle.width = '500px'
+    customStyle.height = '900px'
+}
+const onmouseoutDiv = function () {
+    customStyle.width = '100px'
+    customStyle.height = '100px'
+}
+
+
+
+
 // // 3秒内没有移动鼠标，隐藏按钮,移动鼠标显示按钮
 // let timer = null;
 // document.onmousemove = function () {
@@ -112,51 +129,32 @@ function setPlayer(p) {
 
 <style scoped lang="scss">
 #container {
-  background-color: #1ab394;
-  // 固定在右上角
-  position: fixed;
-  right: 30px;
-  top: 30px;
-  z-index: 999;
-  // 按钮样式
-  #floating-btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 3px #ccc;
-    cursor: pointer;
-    // 按钮文字样式
-    &::after {
-      content: '但幕';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    // 固定在右上角
+    position: fixed;
+    right: 30px;
+    top: 30px;
+    transition: all 0.5s;
+    &:hover{
+        background-color: #1c84c6;
+        // 设置 floating-btn 颜色为#fff;
+        .floating-btn{
+            color: #fff;
+        }
     }
-  }
-
-  // 要显示/隐藏的内容
-  #content {
-    width: 200px;
-    height: 200px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 3px #ccc;
-    position: absolute;
-    top: 50px;
-    right: 0;
-    display: none;
-  }
-
-  // 按钮悬浮时显示内容
-  &:hover {
-    #content {
-      display: block;
+    .floating-btn{
+        background-color: #1c84c6;
+        border-radius: 15px;
+        height: 30px;
+        width: 70px;
+        color: crimson;
+        font-size: 19px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.5s;
     }
-  }
-
 }
 </style>
 
