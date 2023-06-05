@@ -2,174 +2,34 @@
     <div @mouseover="mouseoverDiv" @mouseout="onmouseoutDiv" id="container" :style="customStyle" v-show="isShowBut">
         <div class="floating-btn"><span>但幕</span></div>
         <div v-show="contentShow" id="content">
-            <div class="item">
+            <div v-for="item in vData" class="item">
                 <div class="l">
-                    <img alt="你好" src="https://img0.baidu.com/it/u=4162443464,2854908495&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500">
+                    <img alt="你好" :src="item.vodPic">
                 </div>
                 <div class="r">
                     <div class="info">
-                        <div class="title">我是标题</div>
+                        <div class="title">{{item.vodName}}</div>
                         <div class="row">
-                            <div class="tag"><span>类型：</span>动漫</div>
-                            <div class="tag"><span>地区：</span>日本</div>
+                            <div class="tag"><span>类型：</span>{{item.vodTag }}</div>
+                            <div class="tag"><span>地区：</span>{{item.vodArea}}</div>
                             <div class="tag"><span>年份：</span>2021</div>
                             <div class="tag"><span>主演：</span>第三方,电饭锅,是</div>
                         </div>
                         <div class="row">
-                            <div class="tag"><span>简介：</span>第三方,水电费水电费水电费多少肺癌 以后刚发的还让他会更好富贵花园提建议,是</div>
+                            <div  class="tag"><span>简介：</span>{{item.vodContent}}</div>
                         </div>
                     </div>
-                    <div class="episodes">
-                        <div class="episodeItem">1</div>
-                        <div class="episodeItem">2</div>
-                        <div class="episodeItem">3</div>
-                        <div class="episodeItem">4</div>
-                        <div class="episodeItem">5</div>
-                        <div class="episodeItem">6</div>
-                        <div class="episodeItem">7</div>
-                        <div class="episodeItem">8</div>
-                        <div class="episodeItem">9</div>
-                        <div class="episodeItem">10</div>
-                        <div class="episodeItem">11</div>
-                        <div class="episodeItem">12</div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="l">
-                    <img alt="你好" src="https://img0.baidu.com/it/u=4162443464,2854908495&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500">
-                </div>
-                <div class="r">
-                    <div class="info">
-                        <div class="title">我是标题</div>
-                        <div class="row">
-                            <div class="tag"><span>类型：</span>动漫</div>
-                            <div class="tag"><span>地区：</span>日本</div>
-                            <div class="tag"><span>年份：</span>2021</div>
-                            <div class="tag"><span>主演：</span>第三方,电饭锅,是</div>
+                    <div class="source" v-for="(value, key) in item.vodPlayUrl">
+                        <span style="font-size: 16px;">{{ key }}</span>
+                        <div class="episodes">
+                            <div v-for="episode in value" @click="clickEpisode(episode.url)" class="episodeItem">{{ episode.title }}</div>
                         </div>
-                        <div class="row">
-                            <div class="tag"><span>简介：</span>第三方,水电费水电费水电费多少肺癌 以后刚发的还让他会更好富贵花园提建议,是</div>
-                        </div>
-                    </div>
-                    <div class="episodes">
-                        <div class="episodeItem">1</div>
-                        <div class="episodeItem">2</div>
-                        <div class="episodeItem">3</div>
-                        <div class="episodeItem">4</div>
-                        <div class="episodeItem">5</div>
-                        <div class="episodeItem">6</div>
-                        <div class="episodeItem">7</div>
-                        <div class="episodeItem">8</div>
-                        <div class="episodeItem">9</div>
-                        <div class="episodeItem">10</div>
-                        <div class="episodeItem">11</div>
-                        <div class="episodeItem">12</div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="l">
-                    <img alt="你好" src="https://img0.baidu.com/it/u=4162443464,2854908495&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500">
-                </div>
-                <div class="r">
-                    <div class="info">
-                        <div class="title">我是标题</div>
-                        <div class="row">
-                            <div class="tag"><span>类型：</span>动漫</div>
-                            <div class="tag"><span>地区：</span>日本</div>
-                            <div class="tag"><span>年份：</span>2021</div>
-                            <div class="tag"><span>主演：</span>第三方,电饭锅,是</div>
-                        </div>
-                        <div class="row">
-                            <div class="tag"><span>简介：</span>第三方,水电费水电费水电费多少肺癌 以后刚发的还让他会更好富贵花园提建议,是</div>
-                        </div>
-                    </div>
-                    <div class="episodes">
-                        <div class="episodeItem">1</div>
-                        <div class="episodeItem">2</div>
-                        <div class="episodeItem">3</div>
-                        <div class="episodeItem">4</div>
-                        <div class="episodeItem">5</div>
-                        <div class="episodeItem">6</div>
-                        <div class="episodeItem">7</div>
-                        <div class="episodeItem">8</div>
-                        <div class="episodeItem">9</div>
-                        <div class="episodeItem">10</div>
-                        <div class="episodeItem">11</div>
-                        <div class="episodeItem">12</div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="l">
-                    <img alt="你好" src="https://img0.baidu.com/it/u=4162443464,2854908495&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500">
-                </div>
-                <div class="r">
-                    <div class="info">
-                        <div class="title">我是标题</div>
-                        <div class="row">
-                            <div class="tag"><span>类型：</span>动漫</div>
-                            <div class="tag"><span>地区：</span>日本</div>
-                            <div class="tag"><span>年份：</span>2021</div>
-                            <div class="tag"><span>主演：</span>第三方,电饭锅,是</div>
-                        </div>
-                        <div class="row">
-                            <div class="tag"><span>简介：</span>第三方,水电费水电费水电费多少肺癌 以后刚发的还让他会更好富贵花园提建议,是</div>
-                        </div>
-                    </div>
-                    <div class="episodes">
-                        <div class="episodeItem">1</div>
-                        <div class="episodeItem">2</div>
-                        <div class="episodeItem">3</div>
-                        <div class="episodeItem">4</div>
-                        <div class="episodeItem">5</div>
-                        <div class="episodeItem">6</div>
-                        <div class="episodeItem">7</div>
-                        <div class="episodeItem">8</div>
-                        <div class="episodeItem">9</div>
-                        <div class="episodeItem">10</div>
-                        <div class="episodeItem">11</div>
-                        <div class="episodeItem">12</div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="l">
-                    <img alt="你好" src="https://img0.baidu.com/it/u=4162443464,2854908495&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500">
-                </div>
-                <div class="r">
-                    <div class="info">
-                        <div class="title">我是标题</div>
-                        <div class="row">
-                            <div class="tag"><span>类型：</span>动漫</div>
-                            <div class="tag"><span>地区：</span>日本</div>
-                            <div class="tag"><span>年份：</span>2021</div>
-                            <div class="tag"><span>主演：</span>第三方,电饭锅,是</div>
-                        </div>
-                        <div class="row">
-                            <div class="tag"><span>简介：</span>第三方,水电费水电费水电费多少肺癌 以后刚发的还让他会更好富贵花园提建议,是</div>
-                        </div>
-                    </div>
-                    <div class="episodes">
-                        <div class="episodeItem">1</div>
-                        <div class="episodeItem">2</div>
-                        <div class="episodeItem">3</div>
-                        <div class="episodeItem">4</div>
-                        <div class="episodeItem">5</div>
-                        <div class="episodeItem">6</div>
-                        <div class="episodeItem">7</div>
-                        <div class="episodeItem">8</div>
-                        <div class="episodeItem">9</div>
-                        <div class="episodeItem">10</div>
-                        <div class="episodeItem">11</div>
-                        <div class="episodeItem">12</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div style="display: none;width: 100%;height: 100%;">
+    <div style="width: 100%;height: 100%;">
         <NPlayer
                 :options="options"
                 :set="setPlayer"
@@ -182,6 +42,7 @@ import {reactive, ref} from "vue";
 import {useRoute} from "vue-router";
 import Danmaku from "@nplayer/danmaku";
 import Hls from 'hls.js'
+import {searchVodList} from "@/api/vodCollect/vodList";
 
 
 
@@ -195,8 +56,8 @@ let contentShow = ref(false);
 
 const mouseoverDiv = function () {
     // isShowBut.value = true
-    customStyle.width = '28%'
-    customStyle.height = '95%'
+    customStyle.width = '30%'
+    customStyle.height = '80%'
     contentShow.value = true;
 }
 const onmouseoutDiv = function () {
@@ -222,7 +83,7 @@ const danmaku = new Danmaku({
     area: 0.25,
     items: []
 })
-
+let vData = reactive({})
 const url = ref(useRoute().query.url);
 
 const hls = new Hls()
@@ -235,43 +96,35 @@ const options = reactive({
     contextMenuToggle: true,
 })
 
-function init() {
+async function init() {
+    // 弹幕视图配置
     let video = player.danmaku.player.video
     video.style.objectFit = 'fill'
     let div = player.danmaku.el
     div.style.height = '85%'
-
+    // 警告弹幕数据
     const sortedItems = [
         {time: 1, type: 'top', text: '欢迎使用弹幕影视', color: '#ff0000'},
         {time: 1, type: 'top', text: ',请勿相信任何广告', color: '#1700ff'},
         {time: 1, type: 'bottom', text: '请勿相信任何广告', color: '#ff0000'},
         {time: 1, type: 'bottom', text: '请勿相信任何广告', color: '#97ff00'},
-        {time: 1, text: '测试弹幕1～'},
-        {time: 2, text: '测试弹幕1～'},
-        {time: 3, text: '测试弹幕1～'},
-        {time: 4, text: '测试弹幕2～'}
+        {time: 1, type: 'bottom', text: '欢迎使用弹幕影视', color: '#8300ff'},
     ]
     player.danmaku.resetItems(sortedItems)
 
 
+
+
+
+    // 加载数据
+    let res = await searchVodList({"kw": url.value});
+    vData = res.data;
+
+    // HLS配置
     hls.attachMedia(player.video)
     hls.on(Hls.Events.MEDIA_ATTACHED, function () {
-        hls.loadSource('https://s.xlzys.com/play/lejgZR5a/index.m3u8')
+        hls.loadSource("https://vip.lz-cdn8.com/20220429/5418_870a0718/index.m3u8")
     })
-
-
-    /*    // searchVodList({"kw":url.value}).then(res => {
-        //     let froms = {};
-        //     froms = res.data[0].vodPlayUrl;
-        //     let title = froms.xlm3u8[0].title;
-        //     let url = froms.xlm3u8[0].url;
-        //
-        //     console.log(url)
-        //     hls.on(Hls.Events.MEDIA_ATTACHED, function () {
-        //         hls.loadSource(url)
-        //     })
-        //
-        // });*/
 }
 
 function setPlayer(p) {
@@ -279,6 +132,14 @@ function setPlayer(p) {
     init();
 }
 
+// 点击播放
+function clickEpisode(url){
+    console.log("播放链接:",url)
+    hls.attachMedia(player.video)
+    hls.on(Hls.Events.MEDIA_ATTACHED, function () {
+        hls.loadSource(url)
+    })
+}
 
 /*// document.addEventListener('contextmenu', function (e) {
 //     e.preventDefault();
@@ -297,12 +158,12 @@ function setPlayer(p) {
 
 
 // 禁用F12
-document.onkeydown = document.onkeyup = document.onkeypress = function (event) {
-    if (event.keyCode === 123) {
-        event.preventDefault();
-        window.event.returnValue = false;
-    }
-}
+// document.onkeydown = document.onkeyup = document.onkeypress = function (event) {
+//     if (event.keyCode === 123) {
+//         event.preventDefault();
+//         window.event.returnValue = false;
+//     }
+// }
 
 // setInterval(function () {
 //     const before = new Date();
@@ -322,6 +183,11 @@ document.onkeydown = document.onkeyup = document.onkeypress = function (event) {
 
 <style scoped lang="scss">
 #container {
+    // 设置超出显示滚动条
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    z-index: 9999;
     padding: 0 10px;
     // 内容垂直分布,填充全部
     display: flex;
@@ -357,9 +223,10 @@ document.onkeydown = document.onkeyup = document.onkeypress = function (event) {
     }
 }
 #content{
+    margin-top: 5px;
     flex-grow : 1;
     width: 100%;
-    background-color: #bfcbd9;
+    //background-color: #bfcbd9;
     display: flex;
     flex-direction: column;
     .item{
@@ -368,24 +235,31 @@ document.onkeydown = document.onkeyup = document.onkeypress = function (event) {
         width: 100%;
         display: flex;
         .l{
-            height: 170px;
-            width: 160px;
+            width: 30%;
             img{
-                height: 100%;
-                width: 100%;
+                height: 170px;
+                width: 120px;
                 object-fit: fill;
                 //border-radius: 5px;
             }
         }
         .r{
-            margin-left: 10px;
+            width: 70%;
             .info{
                 .title{
                     font-size: 20px;
                     font-weight: bold;
                 }
                 .row{
+                    display: flex;
+                    // 自动换行
+                    flex-wrap: wrap;
+
                     .tag{
+                        // 省略超过100字的内容省略号显示结尾
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
                         span{
                             color: #515a6e;
                         }
@@ -399,9 +273,15 @@ document.onkeydown = document.onkeyup = document.onkeypress = function (event) {
             }
             .episodes{
                 display: flex;
+                flex-wrap: wrap;
                 .episodeItem{
-                    height: 20px;
-                    padding: 5px 10px;
+                    text-align: center;
+                    height: 30px;
+                    width: 30px;
+                    padding: 5px 5px;
+                    margin: 5px;
+                    background-color: #7171C6;
+                    cursor: pointer;
                 }
             }
         }
