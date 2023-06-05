@@ -1,7 +1,173 @@
 <template>
     <div @mouseover="mouseoverDiv" @mouseout="onmouseoutDiv" id="container" :style="customStyle" v-show="isShowBut">
         <div class="floating-btn"><span>但幕</span></div>
-<!--        <div id="content">要显示/隐藏的内容</div>-->
+        <div v-show="contentShow" id="content">
+            <div class="item">
+                <div class="l">
+                    <img alt="你好" src="https://img0.baidu.com/it/u=4162443464,2854908495&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500">
+                </div>
+                <div class="r">
+                    <div class="info">
+                        <div class="title">我是标题</div>
+                        <div class="row">
+                            <div class="tag"><span>类型：</span>动漫</div>
+                            <div class="tag"><span>地区：</span>日本</div>
+                            <div class="tag"><span>年份：</span>2021</div>
+                            <div class="tag"><span>主演：</span>第三方,电饭锅,是</div>
+                        </div>
+                        <div class="row">
+                            <div class="tag"><span>简介：</span>第三方,水电费水电费水电费多少肺癌 以后刚发的还让他会更好富贵花园提建议,是</div>
+                        </div>
+                    </div>
+                    <div class="episodes">
+                        <div class="episodeItem">1</div>
+                        <div class="episodeItem">2</div>
+                        <div class="episodeItem">3</div>
+                        <div class="episodeItem">4</div>
+                        <div class="episodeItem">5</div>
+                        <div class="episodeItem">6</div>
+                        <div class="episodeItem">7</div>
+                        <div class="episodeItem">8</div>
+                        <div class="episodeItem">9</div>
+                        <div class="episodeItem">10</div>
+                        <div class="episodeItem">11</div>
+                        <div class="episodeItem">12</div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="l">
+                    <img alt="你好" src="https://img0.baidu.com/it/u=4162443464,2854908495&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500">
+                </div>
+                <div class="r">
+                    <div class="info">
+                        <div class="title">我是标题</div>
+                        <div class="row">
+                            <div class="tag"><span>类型：</span>动漫</div>
+                            <div class="tag"><span>地区：</span>日本</div>
+                            <div class="tag"><span>年份：</span>2021</div>
+                            <div class="tag"><span>主演：</span>第三方,电饭锅,是</div>
+                        </div>
+                        <div class="row">
+                            <div class="tag"><span>简介：</span>第三方,水电费水电费水电费多少肺癌 以后刚发的还让他会更好富贵花园提建议,是</div>
+                        </div>
+                    </div>
+                    <div class="episodes">
+                        <div class="episodeItem">1</div>
+                        <div class="episodeItem">2</div>
+                        <div class="episodeItem">3</div>
+                        <div class="episodeItem">4</div>
+                        <div class="episodeItem">5</div>
+                        <div class="episodeItem">6</div>
+                        <div class="episodeItem">7</div>
+                        <div class="episodeItem">8</div>
+                        <div class="episodeItem">9</div>
+                        <div class="episodeItem">10</div>
+                        <div class="episodeItem">11</div>
+                        <div class="episodeItem">12</div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="l">
+                    <img alt="你好" src="https://img0.baidu.com/it/u=4162443464,2854908495&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500">
+                </div>
+                <div class="r">
+                    <div class="info">
+                        <div class="title">我是标题</div>
+                        <div class="row">
+                            <div class="tag"><span>类型：</span>动漫</div>
+                            <div class="tag"><span>地区：</span>日本</div>
+                            <div class="tag"><span>年份：</span>2021</div>
+                            <div class="tag"><span>主演：</span>第三方,电饭锅,是</div>
+                        </div>
+                        <div class="row">
+                            <div class="tag"><span>简介：</span>第三方,水电费水电费水电费多少肺癌 以后刚发的还让他会更好富贵花园提建议,是</div>
+                        </div>
+                    </div>
+                    <div class="episodes">
+                        <div class="episodeItem">1</div>
+                        <div class="episodeItem">2</div>
+                        <div class="episodeItem">3</div>
+                        <div class="episodeItem">4</div>
+                        <div class="episodeItem">5</div>
+                        <div class="episodeItem">6</div>
+                        <div class="episodeItem">7</div>
+                        <div class="episodeItem">8</div>
+                        <div class="episodeItem">9</div>
+                        <div class="episodeItem">10</div>
+                        <div class="episodeItem">11</div>
+                        <div class="episodeItem">12</div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="l">
+                    <img alt="你好" src="https://img0.baidu.com/it/u=4162443464,2854908495&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500">
+                </div>
+                <div class="r">
+                    <div class="info">
+                        <div class="title">我是标题</div>
+                        <div class="row">
+                            <div class="tag"><span>类型：</span>动漫</div>
+                            <div class="tag"><span>地区：</span>日本</div>
+                            <div class="tag"><span>年份：</span>2021</div>
+                            <div class="tag"><span>主演：</span>第三方,电饭锅,是</div>
+                        </div>
+                        <div class="row">
+                            <div class="tag"><span>简介：</span>第三方,水电费水电费水电费多少肺癌 以后刚发的还让他会更好富贵花园提建议,是</div>
+                        </div>
+                    </div>
+                    <div class="episodes">
+                        <div class="episodeItem">1</div>
+                        <div class="episodeItem">2</div>
+                        <div class="episodeItem">3</div>
+                        <div class="episodeItem">4</div>
+                        <div class="episodeItem">5</div>
+                        <div class="episodeItem">6</div>
+                        <div class="episodeItem">7</div>
+                        <div class="episodeItem">8</div>
+                        <div class="episodeItem">9</div>
+                        <div class="episodeItem">10</div>
+                        <div class="episodeItem">11</div>
+                        <div class="episodeItem">12</div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="l">
+                    <img alt="你好" src="https://img0.baidu.com/it/u=4162443464,2854908495&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500">
+                </div>
+                <div class="r">
+                    <div class="info">
+                        <div class="title">我是标题</div>
+                        <div class="row">
+                            <div class="tag"><span>类型：</span>动漫</div>
+                            <div class="tag"><span>地区：</span>日本</div>
+                            <div class="tag"><span>年份：</span>2021</div>
+                            <div class="tag"><span>主演：</span>第三方,电饭锅,是</div>
+                        </div>
+                        <div class="row">
+                            <div class="tag"><span>简介：</span>第三方,水电费水电费水电费多少肺癌 以后刚发的还让他会更好富贵花园提建议,是</div>
+                        </div>
+                    </div>
+                    <div class="episodes">
+                        <div class="episodeItem">1</div>
+                        <div class="episodeItem">2</div>
+                        <div class="episodeItem">3</div>
+                        <div class="episodeItem">4</div>
+                        <div class="episodeItem">5</div>
+                        <div class="episodeItem">6</div>
+                        <div class="episodeItem">7</div>
+                        <div class="episodeItem">8</div>
+                        <div class="episodeItem">9</div>
+                        <div class="episodeItem">10</div>
+                        <div class="episodeItem">11</div>
+                        <div class="episodeItem">12</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div style="display: none;width: 100%;height: 100%;">
         <NPlayer
@@ -25,14 +191,18 @@ const customStyle = reactive({
 })
 
 let isShowBut = ref(true);
+let contentShow = ref(false);
+
 const mouseoverDiv = function () {
     // isShowBut.value = true
-    customStyle.width = '500px'
-    customStyle.height = '900px'
+    customStyle.width = '28%'
+    customStyle.height = '95%'
+    contentShow.value = true;
 }
 const onmouseoutDiv = function () {
     customStyle.width = '100px'
     customStyle.height = '100px'
+    contentShow.value = false;
 }
 
 
@@ -125,15 +295,45 @@ function setPlayer(p) {
 //     }
 // }, 1000);*/
 
+
+// 禁用F12
+document.onkeydown = document.onkeyup = document.onkeypress = function (event) {
+    if (event.keyCode === 123) {
+        event.preventDefault();
+        window.event.returnValue = false;
+    }
+}
+
+// setInterval(function () {
+//     const before = new Date();
+//     (function(){}).constructor("debugger")();
+//     // debugger;
+//     const after = new Date();
+//     const cost = after.getTime() - before.getTime();
+//     if (cost > 100) {
+//         document.body.innerHTML='年轻人，不要太好奇';
+//         window.close();
+//         window.location = "about:blank";
+//     }
+// }, 1000);
+
+
 </script>
 
 <style scoped lang="scss">
 #container {
+    padding: 0 10px;
+    // 内容垂直分布,填充全部
+    display: flex;
+    flex-direction: column;
+    //justify-content: space-between;
+
     // 固定在右上角
+    border-radius: 5px;
     position: fixed;
     right: 30px;
     top: 30px;
-    transition: all 0.5s;
+    transition: all 0.3s;
     &:hover{
         background-color: #1c84c6;
         // 设置 floating-btn 颜色为#fff;
@@ -154,6 +354,57 @@ function setPlayer(p) {
         align-items: center;
         cursor: pointer;
         transition: all 0.5s;
+    }
+}
+#content{
+    flex-grow : 1;
+    width: 100%;
+    background-color: #bfcbd9;
+    display: flex;
+    flex-direction: column;
+    .item{
+        border: #1f2d3d 1px solid;
+        margin-bottom: 10px;
+        width: 100%;
+        display: flex;
+        .l{
+            height: 170px;
+            width: 160px;
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: fill;
+                //border-radius: 5px;
+            }
+        }
+        .r{
+            margin-left: 10px;
+            .info{
+                .title{
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+                .row{
+                    .tag{
+                        span{
+                            color: #515a6e;
+                        }
+                        background-color: #1c84c6;
+                        color: #fff;
+                        padding: 2px 5px;
+                        margin: 5px;
+                        border-radius: 5px;
+                    }
+                }
+            }
+            .episodes{
+                display: flex;
+                .episodeItem{
+                    height: 20px;
+                    padding: 5px 10px;
+                }
+            }
+        }
     }
 }
 </style>
