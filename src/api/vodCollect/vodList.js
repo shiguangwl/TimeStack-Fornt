@@ -9,6 +9,14 @@ export function searchVodList(query) {
   })
 }
 
+// 检索弹幕信息和标题
+export function getBullet(query) {
+  return request({
+    url: '/vod/getBullet',
+    method: 'get',
+    params: query
+  })
+}
 
 
 // 查询VodCollect 影视数据列表列表
